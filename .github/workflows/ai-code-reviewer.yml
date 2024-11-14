@@ -1,24 +1,20 @@
-name: AI Code Reviewer
-
+name: Code Review with OpenAI
 on:
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-
+    types:
+      - opened
+      - synchronize
+permissions: write-all
 jobs:
-  ai_code_review:
-    permissions: write-all
+  code_review:
     runs-on: ubuntu-latest
-
     steps:
-    - name: AI Code Review
-      uses: AleksandrFurmenkovOfficial/ai-code-review@v0.4.1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }} # Token for accessing PRs, file reading, and commenting capabilities
-        OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}} # Access to the GPT-4 class model
-        owner: ${{ github.repository_owner }}
-        repo: ${{ github.event.repository.name }}
-        pr_number: ${{ github.event.number }}
-        include_extensions: ${{ steps.inputs.include_extensions }} # Optional, specify file types to include e.g., ".py,.js,.html"
-        exclude_extensions: ${{ steps.inputs.exclude_extensions }} # Optional, specify file types to exclude
-        include_paths: ${{ steps.inputs.include_paths }} # Optional, specify directories to include
-        exclude_paths: ${{ steps.inputs.exclude_paths }} # Optional, specify directories to exclude
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Code Review
+        uses: freeedcom/ai-codereviewer@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_MODEL: "gpt-4-1106-preview"
+          exclude: "yarn.lock,dist/**"
