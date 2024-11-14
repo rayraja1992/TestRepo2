@@ -6,6 +6,7 @@ on:
 
 jobs:
   ai_code_review:
+    permissions: write-all
     runs-on: ubuntu-latest
 
     steps:
@@ -13,7 +14,7 @@ jobs:
       uses: AleksandrFurmenkovOfficial/ai-code-review@v0.4.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} # Token for accessing PRs, file reading, and commenting capabilities
-        openai_api_key: ${{secrets.OPENAI_API_KEY}} # Access to the GPT-4 class model
+        OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}} # Access to the GPT-4 class model
         owner: ${{ github.repository_owner }}
         repo: ${{ github.event.repository.name }}
         pr_number: ${{ github.event.number }}
