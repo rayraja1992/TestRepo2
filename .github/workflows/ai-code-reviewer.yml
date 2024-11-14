@@ -13,10 +13,10 @@ jobs:
 
     steps:
     - name: AI Code Review
-      uses: rayraja1992/ai-code-review@v0.4.1
+      uses: actions/ai-code-review@v0.4.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} # Token for accessing PRs, file reading, and commenting capabilities
-        OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}} # Access to the GPT-4 class model
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} # Access to the GPT-4 class model
         owner: ${{ github.repository_owner }}
         repo: ${{ github.event.repository.name }}
         pr_number: ${{ github.event.number }}
