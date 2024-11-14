@@ -11,7 +11,7 @@ jobs:
         runs-on: 'ubuntu-latest'
         steps:
             - name: Code Review
-              uses: rayraja1992/sfdx-code-review-action@v0.3.0
+              uses: packocz/sfdx-code-review-action@v0.3.0
               with:
                   source_path: '"***.cls"'
                   reject_threshold: 1
