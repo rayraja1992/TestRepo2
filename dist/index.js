@@ -31860,7 +31860,7 @@ function main() {
             .split(",")
             .map((s) => s.trim());
         const filteredDiff = parsedDiff.filter((file) => {
-            return !excludePatterns.some((pattern) => { var _a; return minimatch((_a = file.to) !== null && _a !== void 0 ? _a : "", pattern); });
+            return !excludePatterns.some((pattern) => { var _a; return minimatch.minimatch((_a = file.to) !== null && _a !== void 0 ? _a : "", pattern); });
         });
         const comments = yield analyzeCode(filteredDiff, prDetails);
         if (comments.length > 0) {

@@ -228,7 +228,7 @@ async function main() {
 
   const filteredDiff = parsedDiff.filter((file) => {
     return !excludePatterns.some((pattern) =>
-      minimatch(file.to ?? "", pattern)
+      minimatch.minimatch(file.to ?? "", pattern)
     );
   });
 
