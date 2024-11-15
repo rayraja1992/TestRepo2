@@ -15,7 +15,7 @@ jobs:
       - name: Run pull request stats
         uses: flowwer-dev/pull-request-stats@master
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ADD_A_PERSONAL_ACCESS_TOKEN }}
           repositories: 'rayraja1992/TestRepo2'
           period: 7
           charts: true
