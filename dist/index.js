@@ -31684,10 +31684,10 @@ const core = __importStar(__nccwpck_require__(8167));
 const openai_1 = __importDefault(__nccwpck_require__(414));
 const rest_1 = __nccwpck_require__(7832);
 const parse_diff_1 = __importDefault(__nccwpck_require__(926));
+const minimatch = __nccwpck_require__(5980);
 const GITHUB_TOKEN = core.getInput("GITHUB_TOKEN");
 const OPENAI_API_KEY = core.getInput("OPENAI_API_KEY");
 const OPENAI_API_MODEL = core.getInput("OPENAI_API_MODEL");
-const minimatch = __nccwpck_require__(5980);
 const octokit = new rest_1.Octokit({ auth: GITHUB_TOKEN });
 const openai = new openai_1.default({
     apiKey: OPENAI_API_KEY,

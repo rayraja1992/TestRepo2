@@ -3,11 +3,11 @@ import * as core from "@actions/core";
 import OpenAI from "openai";
 import { Octokit } from "@octokit/rest";
 import parseDiff, { Chunk, File } from "parse-diff";
+const minimatch = require("minimatch");
 
 const GITHUB_TOKEN: string = core.getInput("GITHUB_TOKEN");
 const OPENAI_API_KEY: string = core.getInput("OPENAI_API_KEY");
 const OPENAI_API_MODEL: string = core.getInput("OPENAI_API_MODEL");
-const minimatch = require("minimatch");
 
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
