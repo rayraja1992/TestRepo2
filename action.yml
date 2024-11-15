@@ -1,0 +1,7 @@
+name: "AI Code Review Action By Raja"
+description: "Perform code reviews and comment on diffs using OpenAI API."
+authod: "Raja Bhandari"
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
